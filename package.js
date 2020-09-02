@@ -6,12 +6,14 @@ Package.describe({
 });
 
 Package.onUse(api => {
+  api.versionsFrom('1.11');
+
   api.use('check', 'server');
   api.use('webapp', 'server');
   api.use(['accounts-base', 'ecmascript'], ['client', 'server']);
   // Export Accounts (etc) to packages using this one.
   api.imply('accounts-base', ['client', 'server']);
-  api.use('oauth');
+  api.use('pathable:oauth@1.3.1');
 
   api.addFiles('oauth_common.js');
   api.addFiles('oauth_client.js', 'client');
